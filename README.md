@@ -1,69 +1,97 @@
-# 🗂️ TaskFlow  
-Um projeto simples de gerenciamento de tarefas desenvolvido para a disciplina **Gestão e Qualidade de Software** utilizando **Python**, **Testes Unitários**, **BDD (Behavior Driven Development)** e boas práticas de documentação.
+TaskFlow – Sistema de Gerenciamento de Tarefas
 
----
+Projeto desenvolvido para a A3 da disciplina Gestão e Qualidade de Software, do curso Análise e Desenvolvimento de Sistemas.
+O objetivo é demonstrar boas práticas de desenvolvimento, testes unitários e testes BDD aplicado a um projeto real.
 
-## 📌 Sobre o Projeto
-O **TaskFlow** é um sistema que permite criar, listar, buscar, atualizar e remover tarefas.  
-O objetivo principal é demonstrar na prática:
+🚀 Descrição do Projeto
 
-- Desenvolvimento orientado a testes (TDD)  
-- Criação e execução de testes unitários  
-- Aplicação de BDD utilizando Gherkin + Behave  
-- Organização de projeto seguindo boas práticas  
-- Estrutura e documentação de software  
+O TaskFlow é um sistema simples de gerenciamento de tarefas desenvolvido em Python, focado em organização, qualidade e boas práticas.
 
----
+O sistema permite:
 
-## 🎯 Objetivos do Trabalho
+Criar tarefas
 
-- Criar um projeto funcional utilizando Python  
-- Implementar testes unitários com pytest  
-- Criar cenários BDD em Gherkin  
-- Automatizar cenários BDD usando Behave  
-- Documentar todo o projeto  
-- Criar apresentação final  
-- Utilizar GitHub Projects para gerenciamento  
+Marcar tarefas como concluídas
 
----
+Listar tarefas
 
-## 📁 Estrutura do Projeto
+Filtrar tarefas concluídas e pendentes
+
+🧱 Estrutura do Projeto
 taskflow/
-├── src/
-│ ├── taskflow.py
-│ └── init.py
-├── tests/
-│ └── test_taskflow.py
-├── features/
-│ ├── taskflow.feature
-│ └── steps/
-│ └── taskflow_steps.py
-├── requirements.txt
-├── TEST_REGISTRY.md
-├── slides/
-│ └── (arquivo de apresentação)
-└── README.md
+│── src/
+│   └── taskflow/
+│       ├── __init__.py
+│       ├── task.py
+│       └── task_manager.py
+│
+│── tests/
+│   ├── __init__.py
+│   └── test_tasks.py
+│
+│── features/
+│   ├── task_management.feature
+│   └── steps/
+│       └── steps_task.py
+│
+│── requirements.txt
+│── README.md
 
----
+🧪 Testes Unitários (Pytest)
 
-## ⚙️ Como Instalar e Rodar
+Para rodar os testes unitários:
 
-### 1️⃣ Criar ambiente virtual  
-**Windows:**
-```powershell
-python -m venv .venv
-.\\.venv\\Scripts\\Activate.ps1
-
-## Linux/Mac
-python3 -m venv .venv
-source .venv/bin/activate
-
-## Instalar Dependências
-pip install -r requirements.txt
-
-## Como Executar os Testes
 pytest -v
 
-## Testes BDD(Behave)
+
+Os testes validam:
+
+Criação de tarefas
+
+Conclusão de tarefa
+
+Listagem
+
+Filtragem
+
+👣 Testes BDD (Behave)
+
+Os cenários estão em:
+features/task_management.feature
+
+Para rodar:
+
 behave
 
+
+O BDD simula o comportamento real do usuário no sistema.
+
+🛠️ Tecnologias Utilizadas
+
+Python
+
+Pytest
+
+Behave
+
+Gherkin
+
+Git + GitHub
+
+📌 Objetivo Acadêmico
+
+Demonstrar:
+
+organização do código
+
+uso de testes
+
+documentação clara
+
+boas práticas de qualidade de software
+
+✨ Autores
+
+João Pedro
+Curso: Análise e Desenvolvimento de Sistemas
+Disciplina: Gestão e Qualidade de Software
