@@ -92,6 +92,8 @@ boas práticas de qualidade de software
 
 ✨ Autores
 
-Arthur Vitor; Gabriel; João Vittor; João Pedro; Shayene Lorena 
+Arthur Vitor; Gabriel; João Vittor; João Pedro; Shayene Lorena
+
 Curso: Análise e Desenvolvimento de Sistemas
+
 Disciplina: Gestão e Qualidade de Software
