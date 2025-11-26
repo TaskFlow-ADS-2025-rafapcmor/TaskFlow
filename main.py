@@ -1,54 +1,47 @@
-from src.task_manager import TaskManager
+from src.taskflow import TaskFlow
+
+def menu():
+    print("\n===== TASKFLOW - GERENCIADOR DE TAREFAS =====")
+    print("1. Adicionar tarefa")
+    print("2. Listar tarefas")
+    print("3. Remover tarefa")
+    print("4. Sair")
 
 def main():
-    manager = TaskManager()
+    taskflow = TaskFlow()  # cria o gerenciador de tarefas
 
     while True:
-        print("\n=== TASKFLOW - GERENCIADOR DE TAREFAS ===")
-        print("1 - Adicionar tarefa")
-        print("2 - Listar tarefas")
-        print("3 - Concluir tarefa")
-        print("4 - Remover tarefa")
-        print("5 - Sair")
+        menu()
+        opc = input("\nEscolha uma opção: ")
 
-        opcao = input("Escolha uma opção: ")
-
-        if opcao == "1":
+        if opc == "1":
             titulo = input("Título da tarefa: ")
-            descricao = input("Descrição: ")
-            manager.add_task(titulo, descricao)
-            print("✔ Tarefa adicionada com sucesso!")
+            descricao = input("Descrição da tarefa: ")
+            taskflow.add_task(titulo, descricao)
+            print("Tarefa adicionada com sucesso!")
 
-        elif opcao == "2":
-            tarefas = manager.list_tasks()
+        elif opc == "2":
+            tarefas = taskflow.list_tasks()
             if not tarefas:
                 print("Nenhuma tarefa encontrada.")
             else:
                 print("\n--- TAREFAS ---")
-                for t in tarefas:
-                    status = "Concluída" if t.completed else "Pendente"
-                    print(f"[{t.id}] {t.title} - {status}")
+                for i, task in enumerate(tarefas):
+                    print(f"{i+1}. {task['title']} - {task['description']}")
 
-        elif opcao == "3":
-            task_id = input("ID da tarefa a concluir: ")
-            if manager.complete_task(task_id):
-                print("✔ Tarefa concluída!")
+        elif opc == "3":
+            index = int(input("Número da tarefa para remover: ")) - 1
+            if taskflow.remove_task(index):
+                print("Tarefa removida!")
             else:
-                print("❌ Tarefa não encontrada.")
+                print("Índice inválido.")
 
-        elif opcao == "4":
-            task_id = input("ID da tarefa a remover: ")
-            if manager.remove_task(task_id):
-                print("✔ Tarefa removida!")
-            else:
-                print("❌ Tarefa não encontrada.")
-
-        elif opcao == "5":
-            print("Encerrando o TaskFlow...")
+        elif opc == "4":
+            print("Saindo...")
             break
 
         else:
-            print("Opção inválida. Tente novamente.")
+            print("Opção inválida! Tente novamente.")
 
 if __name__ == "__main__":
     main()
