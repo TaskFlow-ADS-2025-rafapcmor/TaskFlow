@@ -1,47 +1,46 @@
 from src.taskflow import TaskFlow
 
-def menu():
-    print("\n===== TASKFLOW - GERENCIADOR DE TAREFAS =====")
-    print("1. Adicionar tarefa")
-    print("2. Listar tarefas")
-    print("3. Remover tarefa")
-    print("4. Sair")
-
 def main():
-    taskflow = TaskFlow()  # cria o gerenciador de tarefas
+    taskflow = TaskFlow()
 
     while True:
-        menu()
-        opc = input("\nEscolha uma opção: ")
+        print("\n=== TaskFlow - Gerenciador de Tarefas ===")
+        print("1 - Adicionar tarefa")
+        print("2 - Listar tarefas")
+        print("3 - Remover tarefa")
+        print("4 - Sair")
+
+        opc = input("Escolha uma opção: ")
 
         if opc == "1":
-            titulo = input("Título da tarefa: ")
-            descricao = input("Descrição da tarefa: ")
-            taskflow.add_task(titulo, descricao)
+            title = input("Título da tarefa: ")
+            description = input("Descrição da tarefa: ")
+            taskflow.add_task(title, description)
             print("Tarefa adicionada com sucesso!")
 
         elif opc == "2":
-            tarefas = taskflow.list_tasks()
-            if not tarefas:
-                print("Nenhuma tarefa encontrada.")
+            tasks = taskflow.list_tasks()
+            if not tasks:
+                print("Nenhuma tarefa cadastrada.")
             else:
-                print("\n--- TAREFAS ---")
-                for i, task in enumerate(tarefas):
-                    print(f"{i+1}. {task['title']} - {task['description']}")
+                print("\n=== Suas Tarefas ===")
+                for i, task in enumerate(tasks):
+                    print(f"{i+1}. {task.title} - {task.description}")
 
         elif opc == "3":
-            index = int(input("Número da tarefa para remover: ")) - 1
-            if taskflow.remove_task(index):
-                print("Tarefa removida!")
-            else:
-                print("Índice inválido.")
+            tasks = taskflow.list_tasks()
+            for i, task in enumerate(tasks):
+                print(f"{i+1}. {task.title}")
+            
+            index = int(input("Número da tarefa a remover: ")) - 1
+            taskflow.remove_task(index)
+            print("Tarefa removida com sucesso!")
 
         elif opc == "4":
-            print("Saindo...")
             break
 
         else:
-            print("Opção inválida! Tente novamente.")
+            print("Opção inválida!")
 
 if __name__ == "__main__":
     main()
