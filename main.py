@@ -33,7 +33,7 @@ def main():
                 print(f"{i+1}. {task.title}")
             
             index = int(input("Número da tarefa a remover: ")) - 1
-            taskflow.remove_task(index)
+            def remove_task(self, title):
             print("Tarefa removida com sucesso!")
 
         elif opc == "4":
